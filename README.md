@@ -1,66 +1,92 @@
 <div align="center">
 
+<img src=".github/assets/icon.png" width="112" alt="">
+
 # Impedance Table
 
-**Your PCB impedance requirements. One clean fabrication table.**
+**Your PCB's impedance requirements, as a clean fabrication-drawing table for Altium.<br>Organised by project, PCB P# and revision, and shared with your team.**<br>
+Windows 10 and 11 · 64-bit
 
-A lightweight Windows desktop app for creating DXF tables for Altium fabrication drawings.
+<br>
 
-<a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases/latest/download/ImpedanceTable-Windows.zip"><img src="assets/download-windows.svg" width="312" height="64" alt="Download for Windows" /></a>
+<a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases/latest/download/Impedance-Table-Windows.exe">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/download-windows-dark.svg">
+    <img src=".github/assets/download-windows-light.svg" width="300" height="56" alt="Download for Windows">
+  </picture>
+</a>
 
-**v0.1.0 · First-pass build**  
-Windows 10 / 11 · .NET Framework 4.8 · No installer
+<sub>Version 0.2.0 · <a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases">All versions</a></sub>
 
-[Release notes](https://github.com/branggs/Impedance-Chart-Generator-Release/releases/latest) · [Direct ZIP download](https://github.com/branggs/Impedance-Chart-Generator-Release/raw/refs/heads/main/downloads/ImpedanceTable-Windows.zip) · [Report an issue](https://github.com/branggs/Impedance-Chart-Generator-Release/issues)
+<br><br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/app-dark.png">
+  <img src=".github/assets/app-light.png" width="900" alt="Impedance Table: a PCB's requirements, with the drawing preview underneath">
+</picture>
 
 </div>
 
-## From requirements to drawing
+## What it does
 
-- **Save by PCB part number.** Search, reopen, and update existing tables.
-- **Single-ended and differential.** Group layers that share the same geometry.
-- **Separate spacing callouts.** Pair gap and coplanar ground clearance each get their own column.
-- **Automatic dashes.** Unused impedance and spacing cells are handled for you.
-- **Live preview.** See the same geometry that will be exported.
-- **Windows-style interface.** Segoe UI, blue accents, and Light / Dark / System themes.
+- **Fill in the requirements, get the table.** Each row is a layer (or several layers that share the same geometry, like `L1, L6`), Single Ended or Differential, the impedance, trace width, pair gap, and, for coplanar routing, the clearance to ground. Values that don't apply become dashes by themselves.
+- **See the drawing as you type.** The preview underneath is the exported drawing: 10 mil grid, 45 mil text with a 5 mil stroke, the PCB P# and revision above the table, and units in every cell (`50Ω`, `5mil`).
+- **Export a DXF for Altium.** Import it at **1:1, in millimeters**. The geometry is always in millimeters, even when the table shows mils. The text is drawn as lines, so it looks the same on every PC whatever fonts are installed.
+- **Projects, P#s and revisions.** Every table belongs to a project and a PCB P#, and has revisions named the way you already do it (Rev A, Rev 1.0). **Release** a revision and it's locked for good, so you can always go back to exactly what went to the fab. Changes go into a new revision, copied from any earlier one.
+- **Shared with your team through Dropbox.** Point everyone's app at the same Dropbox folder:
+  - Each revision is its own file, and a released one is never written again.
+  - Saves are made safely, and wait for Dropbox if it's busy with a file.
+  - Edits made on other PCs show up by themselves.
+  - When someone is editing a revision, everyone else sees who it is.
+  - If two people save at the same moment, the app asks which version to keep instead of losing either.
 
-## Start in three steps
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/released-dark.png">
+  <img src=".github/assets/released-light.png" width="900" alt="A released revision: locked, with its drawing, and the newer working revision next to it">
+</picture>
+</div>
 
-1. Download the ZIP and extract it to a folder.
-2. Open **ImpedanceTable.exe**.
-3. Enter your **PCB part number**, add requirements, then **Save board** or **Export DXF**.
+## Install
 
-No Python, Node, or internet connection is needed to run the app. Export also saves the current board. To change a table later, select its part number in **Saved boards**.
+1. Click **Download for Windows** above. You get one file, `Impedance-Table-Windows.exe`.
+2. Open it and follow the installer. It installs just for you, so it doesn't need admin rights.
+3. Open **Impedance Table** from the Start menu.
 
-## Example output
+**The first time,** Windows may show *"Windows protected your PC"*. Click **More info**, then **Run anyway**. This happens because the app isn't code-signed yet.
 
-![Example DXF table with single-ended, differential, and coplanar requirements](assets/table-preview.png)
+## Getting started
 
-*Rendered from an actual exported DXF. The illustrated values are examples, not calculated impedance recommendations.*
+1. **Choose the data folder.** The app asks the first time. Pick a folder in your team's Dropbox (it lists your Dropbox folder to start from), and have everyone pick the same one. You can change it later from the folder name at the bottom of the sidebar.
+2. **New impedance table:** enter the project, the PCB P# and the first revision (Rev A).
+3. **Add rows:** each new row takes the next layer number (L1, L2…); change it if you need to. Click **Single Ended** to switch a row to **Differential** and back. Turn on **Coplanar** to enter a GND clearance.
+4. **Save** (Ctrl+S), then **Export DXF**.
+5. When the board goes to fab, **Release** the revision. Use **New revision** for the next spin.
 
-| Drawing setting | Output |
-|---|---|
-| Columns | Layer · Single Ended · Differential · Trace Width · Pair Gap · Ground Clearance |
-| Table line width | 10 mil |
-| Nominal text height / stroke | 45 mil / 5 mil |
-| Entered dimension units | mil or mm, with conversion |
-| DXF coordinate units | Always millimeters |
-| Text representation | Uppercase drafting strokes, exported as polylines |
+**Units:** pick **mil** or **mm** under Dimensions; switching converts what's already entered. Impedance is always in ohms.
 
-**Import into Altium at 1:1 using millimeters as the source units**, even when the table's displayed dimensions are in mils. Text is geometry so its stroke thickness is preserved without installed fonts; edit the saved table in the app and export again to change the wording or values.
+The app formats the values you enter. It doesn't calculate impedance: take the geometry from your stackup calculator or your fab.
 
-## Your saved boards
+## What's new in 0.2.0
 
-Use **Open data folder** to locate the board records:
+A complete rebuild, with the same look as the team's other apps.
 
-```text
-%LOCALAPPDATA%\LayerStack\ImpedanceTable\Boards
-```
+- **Projects, P#s and revisions**, with **Release** to lock a revision for good, and **New revision** to copy one forward.
+- **A shared data folder** for Dropbox and several people: live updates from other PCs, *someone is editing this* notices, and a choice instead of a lost edit when two saves collide.
+- **Units in every box and drawing cell**: `50Ω`, `5mil`, right after the number.
+- **The revision is on the drawing**, next to the PCB P#.
+- **Add row** numbers the next layer for you.
+- **One click** switches Single Ended / Differential, and **Coplanar** is a switch.
+- Columns renamed: **Impedance**, **Trace Width**, **Pair Gap**, **GND Clearance**.
+- The preview fits the window properly, including after maximizing.
+- It's now an installer, and no longer needs .NET Framework.
 
-Saving updates the same record. The previous save is retained as a `.bak` file. Copy the whole folder while the app is closed to back up your boards or move them to another PC. App updates do not remove this data.
+**Coming from 0.1.0:** tables saved in 0.1.0 aren't brought over (it was a first test version). To remove 0.1.0, delete the folder you unzipped it into.
 
-## First-pass status
+**Not checked yet:** a DXF from this version imported into Altium (the drawing code is the same as 0.1.0's), and the shared folder with two PCs on a real Dropbox. Please report anything odd on the [issues page](https://github.com/branggs/Impedance-Chart-Generator-Release/issues).
 
-The Windows executable compiled successfully. Fourteen core checks passed, and the sample DXF passed an independent structural audit with no errors or repairs. **The native Windows UI and an actual Altium import have not yet been verified hands-on.** On the first import, confirm the 10 mil grid width and 5 mil text stroke appearance.
+Earlier versions are on the [releases page](https://github.com/branggs/Impedance-Chart-Generator-Release/releases).
 
-This app formats your entered requirements; it does not calculate controlled impedance.
+<br>
+
+<div align="center"><sub>Impedance Table · © 2026</sub></div>
