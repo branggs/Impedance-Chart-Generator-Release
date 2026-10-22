@@ -16,7 +16,7 @@ Windows 10 and 11 · 64-bit
   </picture>
 </a>
 
-<sub>Version 0.2.1 · <a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases">All versions</a></sub>
+<sub>Version 0.2.2 · <a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases">All versions</a></sub>
 
 <br><br>
 
@@ -59,7 +59,7 @@ Windows 10 and 11 · 64-bit
 
 ## Getting started
 
-1. **Choose the data folder.** The app asks the first time. Pick a folder in your team's Dropbox (it lists your Dropbox folder to start from), and have everyone pick the same one. You can change it later from the folder name at the bottom of the sidebar.
+1. **Choose the data folder.** The app asks the first time. Make a folder in your team's Dropbox for the tables (for example `Dropbox\Impedance Tables`), share it with everyone, and have **everyone pick that same folder**. The app keeps its files in an `impedance-tables` folder inside it. Pick the folder that holds `impedance-tables`, not `impedance-tables` itself; if you do pick it, the app uses the folder above it. You can see or change the folder later from the folder name at the bottom of the sidebar.
 2. **New impedance table:** enter the project, the PCB P# and the first revision (Rev A).
 3. **Add rows:** each new row takes the next layer number (L1, L2…); change it if you need to. Click **Single Ended** to switch a row to **Differential** and back. Turn on **Coplanar** to enter a GND clearance.
 4. **Save** (Ctrl+S), then **Export DXF**.
@@ -68,6 +68,13 @@ Windows 10 and 11 · 64-bit
 **Units:** pick **mil** or **mm** under Dimensions; switching converts what's already entered. Impedance is always in ohms.
 
 The app formats the values you enter. It doesn't calculate impedance: take the geometry from your stackup calculator or your fab.
+
+## What's new in 0.2.2
+
+- **Fixed: the close button (X) did nothing.** The window now closes, and asks first if you have unsaved changes.
+- **Fixed: two PCs on the "same" Dropbox folder could see different tables.** Choosing the `impedance-tables` folder itself made a second, empty `impedance-tables` inside it, and that PC saved there instead. The app now always uses the folder that holds `impedance-tables`, and corrects an earlier choice by itself when it starts.
+
+**If your tables were split by this** (you see `impedance-tables\impedance-tables` in your folder): close the app on every PC, move every folder inside the inner `impedance-tables\impedance-tables\boards\` into the outer `impedance-tables\boards\`, then delete the empty inner `impedance-tables`. Once Dropbox has synced, every PC shows all the tables.
 
 ## What's new in 0.2.1
 
