@@ -16,7 +16,7 @@ Windows 10 and 11 · 64-bit
   </picture>
 </a>
 
-<sub>Version 0.2.0 · <a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases">All versions</a></sub>
+<sub>Version 0.2.1 · <a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases">All versions</a></sub>
 
 <br><br>
 
@@ -31,7 +31,9 @@ Windows 10 and 11 · 64-bit
 
 - **Fill in the requirements, get the table.** Each row is a layer (or several layers that share the same geometry, like `L1, L6`), Single Ended or Differential, the impedance, trace width, pair gap, and, for coplanar routing, the clearance to ground. Values that don't apply become dashes by themselves.
 - **See the drawing as you type.** The preview underneath is the exported drawing: 10 mil grid, 45 mil text with a 5 mil stroke, the PCB P# and revision above the table, and units in every cell (`50Ω`, `5mil`).
-- **Export a DXF for Altium.** Import it at **1:1, in millimeters**. The geometry is always in millimeters, even when the table shows mils. The text is drawn as lines, so it looks the same on every PC whatever fonts are installed.
+- **Export a DXF for Altium.** Import it at **1:1, in millimeters**. The geometry is always in millimeters, even when the table shows mils. Everything is on one layer, named **Drill Drawing**. Choose how the text comes out, above the preview:
+  - **Text as lines** (the default): the letters are drawn as lines, so they look exactly like the preview on every PC.
+  - **Editable text**: the letters come in as text you can edit in Altium, drawn in Altium's own font.
 - **Projects, P#s and revisions.** Every table belongs to a project and a PCB P#, and has revisions named the way you already do it (Rev A, Rev 1.0). **Release** a revision and it's locked for good, so you can always go back to exactly what went to the fab. Changes go into a new revision, copied from any earlier one.
 - **Shared with your team through Dropbox.** Point everyone's app at the same Dropbox folder:
   - Each revision is its own file, and a released one is never written again.
@@ -66,6 +68,15 @@ Windows 10 and 11 · 64-bit
 **Units:** pick **mil** or **mm** under Dimensions; switching converts what's already entered. Impedance is always in ohms.
 
 The app formats the values you enter. It doesn't calculate impedance: take the geometry from your stackup calculator or your fab.
+
+## What's new in 0.2.1
+
+- **The preview keeps working while you fill a table in.** Switching on Coplanar (or Differential) before entering the clearance (or gap) no longer hides the preview: the missing value is an empty cell, and what's still needed is listed under the preview, row by row.
+- **A warning before exporting an incomplete table.** Export DXF lists what's missing; **Export anyway** leaves those cells empty. A revision still has to be complete to be released.
+- **One DXF layer, named Drill Drawing**, instead of separate grid and text layers.
+- **Editable text** as an export option (see *Export a DXF for Altium* above).
+
+**Not checked yet:** importing these DXFs into Altium: whether it picks the Drill Drawing layer by itself, keeps the 10 mil / 5 mil line widths, and how it shows editable text (centering, the Ω sign). Please report what you see on the [issues page](https://github.com/branggs/Impedance-Chart-Generator-Release/issues).
 
 ## What's new in 0.2.0
 
