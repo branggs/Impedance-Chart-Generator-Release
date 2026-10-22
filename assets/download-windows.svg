@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="312" height="64" viewBox="0 0 312 64" role="img" aria-label="Download for Windows">
+ <defs><linearGradient id="blue" x2="0" y2="1"><stop stop-color="#0879d4"/><stop offset="1" stop-color="#0067c0"/></linearGradient></defs>
+ <rect x="0.5" y="0.5" width="311" height="63" rx="8" fill="url(#blue)" stroke="#075fa8"/>
+ <path d="M22 19h10v10H22zm13 0h10v10H35zM22 32h10v10H22zm13 0h10v10H35z" fill="white"/>
+ <text x="61" y="29" fill="white" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="600">Download for Windows</text>
+ <text x="61" y="47" fill="#d9edff" font-family="Segoe UI,Arial,sans-serif" font-size="12">Portable app · Windows 10 / 11</text>
+ <path d="M282 23v14m-5-5 5 5 5-5m-11 10h12" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
