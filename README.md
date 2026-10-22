@@ -6,12 +6,12 @@
 
 A lightweight Windows desktop app for creating DXF tables for Altium fabrication drawings.
 
-<a href="https://github.com/branggs/Impedance-Chart-Generator-Release/raw/refs/heads/main/downloads/ImpedanceTable-Windows.zip"><img src="assets/download-windows.svg" width="312" height="64" alt="Download for Windows" /></a>
+<a href="https://github.com/branggs/Impedance-Chart-Generator-Release/releases/latest/download/ImpedanceTable-Windows.zip"><img src="assets/download-windows.svg" width="312" height="64" alt="Download for Windows" /></a>
 
 **v0.1.0 · First-pass build**  
 Windows 10 / 11 · .NET Framework 4.8 · No installer
 
-[Release notes](RELEASE-NOTES.md) · [Direct ZIP download](https://github.com/branggs/Impedance-Chart-Generator-Release/raw/refs/heads/main/downloads/ImpedanceTable-Windows.zip) · [Report an issue](https://github.com/branggs/Impedance-Chart-Generator-Release/issues)
+[Release notes](https://github.com/branggs/Impedance-Chart-Generator-Release/releases/latest) · [Direct ZIP download](https://github.com/branggs/Impedance-Chart-Generator-Release/raw/refs/heads/main/downloads/ImpedanceTable-Windows.zip) · [Report an issue](https://github.com/branggs/Impedance-Chart-Generator-Release/issues)
 
 </div>
 
